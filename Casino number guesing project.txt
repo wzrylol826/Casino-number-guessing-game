@@ -1,0 +1,182 @@
+#include <iostream>
+#include <string> //need to use strings
+#include <cstdlib> //need to use random numbers
+#include <ctime>
+#include <cmath>
+using namespace std;
+int main() {
+  int accBalance, betBalance, num, pick, value, extra;
+  string A, B, C, D, user;
+  char choices;
+  srand(time(0));
+  num = rand() % 3 + 1; // random a number between 1 and 3
+
+
+  cout << "---------------Welcome to Juming's online casino!!!--------------------"<< endl;
+  cout << "Hi sir/laddy, how much money would you like to put down in your account?"<< endl;
+  cin >> accBalance;
+  A = "First Option, option A: 1:1 profit, for example: you bet 1000 dollars, when you win you can get 1000 dollars, but when you lose, you also lose the 1000 dollars\n\n";
+  B = "Second Option, option B: 1:10 profit, for example: you bet 1000 dollars, when you win you can get 5000 dollars, but when you lose, you just lose the 1000 dollars\n\n";
+  C = "Third option, option C: 10:100 profit, for example: you bet 1000 dollars, when you win you can get 100000 dollars, but when you lose, you need to lose your 10000 dollars\n\n";
+  do{ //main do while loop
+  if (accBalance >= 10000){
+    cout << "Base on your account's balance, you are available to play these profit mode: \n"<<A << endl;
+    cout << B << endl;
+    cout << C << endl;
+
+  }else{
+    cout << "Unfortunately! You are not qualified for the high risk mode due to your low account balance. Let's see below what you can get:\n"<<endl;
+    cout << A << B;
+  }
+  cout << "If you want to pick first option, just press A, you wanna pick second option, then press B, and stuff like that\n";
+  cout << "Which options would you like to pick?" << endl;
+  cin >> user;
+
+  if(choices == 'A' || choices == 'a'){
+
+     cout << " enter amount to bet : $";
+            cin >> betBalance;
+     do
+        {
+
+            if(betBalance > accBalance)
+                cout << "Betting balance can't be more than current balance!\n"
+                       <<"\nRe-enter balance\n ";
+        }while(betBalance > accBalance);
+
+
+
+
+      do{
+             cout << "Pick a number between 1 and 3:\n";
+    cin >>  pick;
+          if(pick <= 0 || pick > 3){
+              cout << "Please pick a number between 1 and 3\n"
+               << "Please pick a number again: \n" << endl;
+              cin >> pick;
+          }
+      }while(pick <= 0 || pick > 3);
+
+
+
+
+    if(pick == num){
+
+    cout << "Wow! You're right! Money is in your pocket, keep going!"<< endl;
+    value = accBalance + (betBalance * 2);
+    cout << "Now your account balance is: \n" << value << endl;
+
+    }else{
+
+    cout << "Opps! Seens you need some lucky, try again! I trust you can get this next time!"<<"But now you are losing $:"<<betBalance<<"Now your balance is left $:"<<accBalance -(betBalance * 2)<< endl;
+
+}
+cout <<"The number it picked is : " <<num<< endl;
+
+    if(accBalance == 0){
+      cout << "You can not play anymore, because your account balance is 0";
+      break;
+    }
+
+}else if(choices == 'B'|| choices == 'b'){
+
+     cout << " enter amount to bet : $";
+            cin >> betBalance;
+     do
+        {
+
+            if(betBalance > accBalance)
+                cout << "Betting balance can't be more than current balance!\n"
+                       <<"\nRe-enter balance\n ";
+        }while(betBalance > accBalance);
+
+
+
+
+      do{
+             cout << "Pick a number between 1 and 3:\n";
+    cin >>  pick;
+          if(pick <= 0 || pick > 3){
+              cout << "Please pick a number between 1 and 3\n"
+               << "Please pick a number again: \n" << endl;
+              cin >> pick;
+          }
+      }while(pick <= 0 || pick > 3);
+
+
+
+
+    if(pick == num){
+
+    cout << "Wow! You're right! Money is in your pocket, keep going!"<< endl;
+    value = accBalance + (betBalance * 10);
+    cout << "Now your account balance is: \n" << value << endl;
+
+    }else{
+
+    cout << "Opps! Seens you need some lucky, try again! I trust you can get this next time!"<<"But now you are losing $:"<<betBalance<<"Now your balance is left $:"<<accBalance -(betBalance * 2)<< endl;
+
+}
+cout <<"The number it picked is : " <<num<< endl;
+
+    if(accBalance == 0){
+      cout << "You can not play anymore, because your account balance is 0";
+      break;
+    }
+    }else{
+
+     cout << " enter amount to bet : $";
+            cin >> betBalance;
+     do
+        {
+
+            if(betBalance > accBalance)
+                cout << "Betting balance can't be more than current balance!\n"
+                       <<"\nRe-enter balance\n ";
+        }while(betBalance > accBalance);
+
+
+
+
+      do{
+             cout << "Pick a number between 1 and 3:\n";
+    cin >>  pick;
+          if(pick <= 0 || pick > 3){
+              cout << "Please pick a number between 1 and 3\n"
+               << "Please pick a number again: \n" << endl;
+              cin >> pick;
+          }
+      }while(pick <= 0 || pick > 3);
+
+
+
+
+    if(pick == num){
+
+    cout << "Wow! You're right! Money is in your pocket, keep going!"<< endl;
+    value = accBalance + (betBalance * 100);
+    cout << "Now your account balance is: \n" << value << endl;
+
+    }else{
+
+    cout << "Opps! Seens you need some lucky, try again! I trust you can get this next time!"<<"But now you are losing $:"<<betBalance<<"Now your balance is left $:"<<accBalance -(betBalance * 10)<< endl;
+
+}
+cout <<"The number it picked is : " <<num<< endl;
+
+    if(accBalance == 0){
+      cout << "You can not play anymore, because your account balance is 0";
+      break;
+    }
+    }
+
+
+    cout << "Would you like to play again (y/n)?\n";
+    cin >> choices;
+
+  }while(choices == 'Y' || choices == 'y');
+    cout << "\n\n\n";
+    cout << "Have a nice day! Come back anytime!" << endl;
+
+  return 0;
+  }
